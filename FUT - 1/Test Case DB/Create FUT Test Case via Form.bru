@@ -1,0 +1,109 @@
+meta {
+  name: Create FUT Test Case via Form
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base-url}}/api/v1/tdb/upload/form
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "precondition": "User must be logged in2",
+      "test_type": "Inspection",
+      "key_feature": "Login functionality",
+      "scenario": "User enters valid credentials",
+      "scenario_type": "negative",
+      "platform_id": [
+          1,
+          2
+      ],
+      "channel_id": [
+          1
+      ],
+      "code": "TDB-1",
+      "test_case_step": [
+          "Step 1",
+          "Step 2",
+          "Step 3"
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 201 OK
+  
+  request: {
+    url: {{base-url}}/api/v1/tdb/upload/form
+    method: POST
+    mode: json
+    body:json: {
+      {
+          "precondition": "User must be logged in2",
+          "test_type": "Inspection",
+          "key_feature": "Login functionality",
+          "scenario": "User enters valid credentials",
+          "scenario_type": "negative",
+          "platform_id": [
+              1,
+              2
+          ],
+          "channel_id": [
+              1
+          ],
+          "code": "TDB-1",
+          "test_case_step": [
+              "Step 1",
+              "Step 2",
+              "Step 3"
+          ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      X-Request-Id: 37d9316e-f1a6-11f0-aa7b-bc2411695713
+      Date: Thu, 15 Jan 2026 00:07:45 GMT
+      Content-Length: 205
+    }
+  
+    status: {
+      code: Created
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "458ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully created test case",
+            "data": {
+                "id": "1971df76-e73c-4e5a-b55c-d12ffa1e1eeb",
+                "code": {
+                    "value": "TCDB-1",
+                    "prefix": "TCDB",
+                    "sequence": 1
+                }
+            }
+        }
+      '''
+    }
+  }
+}

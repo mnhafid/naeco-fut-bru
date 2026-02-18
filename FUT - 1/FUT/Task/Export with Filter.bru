@@ -1,0 +1,30 @@
+meta {
+  name: Export with Filter
+  type: http
+  seq: 9
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks/export?page=1&size=10&order_by=task_id&order_direction=asc
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 1
+  size: 10
+  order_by: task_id
+  order_direction: asc
+  ~title: 
+  ~status: 
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+tests {
+  test("status code is 200", function() {
+      expect(res.getStatus()).to.equal(200);
+  });
+}

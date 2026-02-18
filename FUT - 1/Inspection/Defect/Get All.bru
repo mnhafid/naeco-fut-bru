@@ -1,0 +1,118 @@
+meta {
+  name: Get All
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base-url}}/api/v1/inspections/tasks/:id/defects
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 4c991509-ece0-4828-81a6-a6cbd2454ee3
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 201 OK
+  
+  request: {
+    url: {{base-url}}/api/v1/futs/tasks/9d3a99e9-4213-4b5b-bc68-7b71bcd29114/defects
+    method: POST
+    mode: multipartForm
+    body:multipart-form: {
+      issue_summary: Wording Login and Beli Not Showing Guest Mode bot on Indonesia and English
+      key_feature: [MYTSEL-3210] [Android] Change Language Improvement
+      test_case: '''
+        TC161 - Change language on onboarding page
+        TC162 - Change Language on Guest Mode Page
+        TC163 - Change Language on Login Page...
+      '''
+      category: Pengaturan modem
+      devices: Google Pixel 7, Samsung A54
+      level: minor
+      platform: 1
+      status: closed
+      raised_date: 15/12/2025
+      raised_by: Rafly
+      test_data: 82121453998
+      department: 1
+      it_status: invalid
+      due_date: 15/12/2025
+      pic_it: Mandeep, Prasad Radju
+      general_notes: '''
+        Will be test in the new build
+        new build for android EOD 04/11
+        New build for android EOD 05/11 17:00 WIB
+      '''
+      it_notes: on check configuration ( this has been fixed)
+      tester_evidence: @file(/Users/adriansetiyadi/Documents/pictures/Screenshot 2025-12-16 at 11.22.32.png)
+      precedented: yes
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: Created
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "10ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved defect dashboard",
+            "data": {
+                "list": [
+                    {
+                        "id": "a9aa29de-e90f-4fad-bcf3-e05d0f887220",
+                        "code": {
+                            "value": "DF-3",
+                            "prefix": "DF",
+                            "sequence": 3
+                        },
+                        "issue_summary": "Wording Login and Beli Not Showing Guest Mode bot on Indonesia and English",
+                        "level": "minor",
+                        "status": "closed",
+                        "test_case": "TC161 - Change language on onboarding page\nTC162 - Change Language on Guest Mode Page\nTC163 - Change Language on Login Page...",
+                        "category": "Pengaturan modem",
+                        "key_feature": "[MYTSEL-3210] [Android] Change Language Improvement",
+                        "raised_date": "15/12/2025",
+                        "aging": 16,
+                        "department": [
+                            {
+                                "id": 1,
+                                "name": "IT",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic_it": "Mandeep, Prasad Radju",
+                        "precedented": true
+                    }
+                ],
+                "count": 1,
+                "page_size": 10,
+                "page_number": 1
+            }
+        }
+      '''
+    }
+  }
+}

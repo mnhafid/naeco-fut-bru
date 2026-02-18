@@ -1,0 +1,66 @@
+meta {
+  name: Complete Upload
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base-url}}/api/v1/files/:id/complete
+  body: none
+  auth: bearer
+}
+
+params:query {
+  ~: 
+}
+
+params:path {
+  id: b173b928-01e5-4922-a9f5-64556d9b23cd
+}
+
+auth:bearer {
+  token: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: Complete Upload
+  
+  request: {
+    url: {{base-url}}/api/v1/files/:id/complete
+    method: POST
+    mode: none
+    params:query: {
+      ~: null
+    }
+  
+    params:path: {
+      id: b173b928-01e5-4922-a9f5-64556d9b23cd
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "152ms",
+            "status": "success",
+            "code": "",
+            "message": "Upload completed successfully",
+            "data": {
+                "upload_id": "b173b928-01e5-4922-a9f5-64556d9b23cd",
+                "status": "UPLOADED"
+            }
+        }
+      '''
+    }
+  }
+}

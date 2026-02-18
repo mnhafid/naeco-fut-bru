@@ -1,0 +1,72 @@
+meta {
+  name: Fetch All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base-url}}/api/v1/departments
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 OK
+  
+  request: {
+    url: {{base-url}}/api/v1/departments
+    method: GET
+    mode: none
+    headers: {
+      Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "80ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved departments",
+            "data": [
+                {
+                    "id": 1,
+                    "name": "IT"
+                },
+                {
+                    "id": 2,
+                    "name": "QA"
+                },
+                {
+                    "id": 3,
+                    "name": "DevOps"
+                },
+                {
+                    "id": 4,
+                    "name": "Product"
+                },
+                {
+                    "id": 5,
+                    "name": "Engineering"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

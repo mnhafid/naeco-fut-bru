@@ -1,0 +1,27 @@
+meta {
+  name: Upload Excel
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{base_url}}/api/v1/tdb/upload/excel
+  body: multipartForm
+  auth: bearer
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:multipart-form {
+  file: @file(/Users/hafidhidayatullah/Downloads/test-case-database-template (1).xlsx)
+}
+
+settings {
+  encodeUrl: true
+}

@@ -1,0 +1,34 @@
+meta {
+  name: Export with Filter
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks/:id/defects/export?issue_summary
+  body: none
+  auth: bearer
+}
+
+params:query {
+  issue_summary: 
+  ~status: 
+}
+
+params:path {
+  id: e827c8e5-cf4b-4771-b867-a03915ddfebf
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+vars:pre-request {
+  id: 4dfc19d4-554b-488a-8f07-9fe001aaec6e
+}
+
+tests {
+  test("status code is 200", function() {
+      expect(res.getStatus()).to.equal(200);
+  });
+}

@@ -1,0 +1,142 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base-url}}/api/v1/it-statuses
+  body: none
+  auth: bearer
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 OK
+  
+  request: {
+    url: {{base-url}}/api/v1/it-statuses
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "0ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved IT statuses",
+            "data": [
+                {
+                    "key": "new_build",
+                    "value": "New Build"
+                },
+                {
+                    "key": "api",
+                    "value": "API"
+                },
+                {
+                    "key": "retest",
+                    "value": "Retest"
+                },
+                {
+                    "key": "expected",
+                    "value": "Expected"
+                },
+                {
+                    "key": "content",
+                    "value": "Content"
+                },
+                {
+                    "key": "esb",
+                    "value": "ESB"
+                },
+                {
+                    "key": "backend",
+                    "value": "Backend"
+                },
+                {
+                    "key": "wec",
+                    "value": "WEC"
+                },
+                {
+                    "key": "business_configuration",
+                    "value": "Business Configuration"
+                },
+                {
+                    "key": "api_and_apps",
+                    "value": "API & APPS"
+                },
+                {
+                    "key": "opr_deployment",
+                    "value": "OPR Deployment"
+                },
+                {
+                    "key": "app",
+                    "value": "APP"
+                },
+                {
+                    "key": "co_team",
+                    "value": "CO Team"
+                },
+                {
+                    "key": "web_ui",
+                    "value": "WebUI"
+                },
+                {
+                    "key": "api_gw",
+                    "value": "APIGW"
+                },
+                {
+                    "key": "orbit_team",
+                    "value": "Orbit Team"
+                },
+                {
+                    "key": "iframe",
+                    "value": "Iframe"
+                },
+                {
+                    "key": "invalid",
+                    "value": "Invalid"
+                },
+                {
+                    "key": "backlog",
+                    "value": "Backlog"
+                },
+                {
+                    "key": "pending",
+                    "value": "Pending"
+                },
+                {
+                    "key": "to_be_inspection",
+                    "value": "To be Inspection"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

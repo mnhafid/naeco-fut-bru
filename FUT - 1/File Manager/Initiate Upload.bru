@@ -1,0 +1,83 @@
+meta {
+  name: Initiate Upload
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{base-url}}/api/v1/files
+  body: json
+  auth: bearer
+}
+
+headers {
+  Content-Type: application/json
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
+}
+
+auth:bearer {
+  token: 
+}
+
+body:json {
+  {
+      "file_name": "testingtus12.pdf",
+      "file_size": 140362,
+      "file_type": "application/pdf"
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 OK
+  
+  request: {
+    url: {{base-url}}/api/v1/files
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+      Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
+    }
+  
+    body:json: {
+      {
+          "file_name": "testingtus12.pdf",
+          "file_size": 140362,
+          "file_type": "application/pdf"
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: Created
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "231ms",
+            "status": "success",
+            "code": "",
+            "message": "Berhasil memulai upload",
+            "data": {
+                "upload_id": "b173b928-01e5-4922-a9f5-64556d9b23cd",
+                "chunk_size": 10485760,
+                "number_of_chunks": 1,
+                "expired_at": "19/12/2025 20:03:36"
+            }
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,154 @@
+meta {
+  name: Create FUT Test Case via Form
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base-url}}/api/v1/inspections/tasks/:task_id/test-cases
+  body: json
+  auth: bearer
+}
+
+params:path {
+  task_id: 6714586e-1c52-467c-aeea-c08afa08b7fc
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "precondition": "User must be logged in2",
+      "key_feature": "Login functionality",
+      "scenario": "User enters valid credentials",
+      "scenario_type": "negative",
+      "platform_id": [
+          1,
+          2
+      ],
+      "channel_id": [
+          1
+      ],
+      "test_data": "username: test@example.com, password: pass123",
+      "status": "open",
+      "expected_result": "User successfully logged in",
+      "pic": "john.doe",
+      "tester_notes": "Test notes here",
+      "test_case_step": [
+          "Step 1",
+          "Step 2",
+          "Step 3"
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: OK
+  
+  request: {
+    url: {{base-url}}/api/v1/tasks/:task_id/test-cases
+    method: GET
+    mode: none
+    params:path: {
+      task_id: 1
+    }
+  
+    headers: {
+      Content-Type: application/json
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: Created
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "589ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully created test case"
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: Master Value
+  
+  request: {
+    url: {{base-url}}/api/v1/tasks/:task_id/test-cases
+    method: POST
+    mode: json
+    params:path: {
+      task_id: 1
+    }
+  
+    body:json: {
+      {
+          "precondition": "User must be logged in2",
+          "key_feature": "Login functionality",
+          "scenario": "User enters valid credentials",
+          "scenario_type": "negative",
+          "platform_id": [
+              1,
+              2
+          ],
+          "channel_id": [
+              1
+          ],
+          "test_data": "username: test@example.com, password: pass123",
+          "status": "open",
+          "expected_result": "User successfully logged in",
+          "pic": "john.doe",
+          "tester_notes": "Test notes here",
+          "test_case_step": [
+              "Step 1",
+              "Step 2",
+              "Step 3"
+          ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        const (
+        	// Test Case Statuses
+        	TestCaseStatusOpen           = "open"
+        	TestCaseStatusNeedConfig     = "need config"
+        	TestCaseStatusNeedData       = "need data"
+        	TestCaseStatusNOK            = "nok"
+        	TestCaseStatusBlocked        = "blocked"
+        	TestCaseStatusPassed         = "passed"
+        	TestCaseStatusPassedWithNote = "passed with note"
+        
+        	// Scenario Types
+        	ScenarioTypePositive = "positive"
+        	ScenarioTypeNegative = "negative"
+        )
+      '''
+    }
+  }
+}

@@ -1,0 +1,114 @@
+meta {
+  name: Import FUT via Form
+  type: http
+  seq: 6
+}
+
+post {
+  url: {{base-url}}/api/v1/futs/tasks/upload/form
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "title": "Testing Task",
+      "objective": "Testing",
+      "dx_business_category_id": [
+          1
+      ],
+      "platform_id": [
+          1
+      ],
+      "channel_id": [
+          1
+      ],
+      "remarks": "Testing by Adrian",
+      "rfs_number": "123XS",
+      "rfs_date": "15/12/2025",
+      "rlm_file_id": "bacae676-68a0-472b-9303-644fedec29a9",
+      "product_brief_file_id": "97330a92-2554-4f71-a35b-83a635534026",
+      "br_doc_file_id": "",
+      "test_case_uat_file_id": "",
+      "rfs_file_id": "",
+      "other_files": [],
+      "web_links": [
+          {
+              "url": "https://github.com/oceaninov/naeco-fut-be/branches",
+              "link_text": "Testing using Github URL"
+          }
+      ],
+      "jira": []
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 OK
+  
+  request: {
+    url: {base-url}/api/v1/tasks/upload/form
+    method: POST
+    mode: json
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "title": "Testing Task",
+          "objective": "Testing",
+          "dx_business_category_id": [
+              1
+          ],
+          "platform_id": [
+              1
+          ],
+          "channel_id": [
+              1
+          ],
+          "remarks": "Testing by Adrian",
+          "rfs_number": "123XS",
+          "rfs_date": "15/12/2025",
+          "rlm_file_id": "bacae676-68a0-472b-9303-644fedec29a9",
+          "product_brief_file_id": "97330a92-2554-4f71-a35b-83a635534026",
+          "br_doc_file_id": "",
+          "test_case_uat_file_id": "",
+          "rfs_file_id": "",
+          "other_files": [],
+          "web_links": [
+              {
+                  "url": "https://github.com/oceaninov/naeco-fut-be/branches",
+                  "link_text": "Testing using Github URL"
+              }
+          ],
+          "jira": []
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "697ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully submitted task"
+        }
+      '''
+    }
+  }
+}

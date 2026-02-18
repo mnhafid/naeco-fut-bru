@@ -1,0 +1,58 @@
+meta {
+  name: Delete
+  type: http
+  seq: 3
+}
+
+delete {
+  url: {{base-url}}/api/v1/futs/tasks/:task_id/defects/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  task_id: 9d3a99e9-4213-4b5b-bc68-7b71bcd29114
+  id: eca4925e-3bc7-49e6-8c84-b8bddb100392
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Delete
+  
+  request: {
+    url: {{base-url}}/api/v1/futs/tasks/:task_id/defects/:id
+    method: DELETE
+    mode: none
+    params:path: {
+      task_id: 9d3a99e9-4213-4b5b-bc68-7b71bcd29114
+      id: eca4925e-3bc7-49e6-8c84-b8bddb100392
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "704ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully deleted defect"
+        }
+      '''
+    }
+  }
+}

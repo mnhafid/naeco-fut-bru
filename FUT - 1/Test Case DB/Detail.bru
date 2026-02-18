@@ -1,0 +1,133 @@
+meta {
+  name: Detail
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks/:task_id/test-cases/:id
+  body: formUrlEncoded
+  auth: bearer
+}
+
+params:path {
+  task_id: 9d3a99e9-4213-4b5b-bc68-7b71bcd29114
+  id: f8dc956c-412c-4b33-86e8-fbd4209da146
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:form-urlencoded {
+  "{
+      \"precondition\": \"User must be logged in2\",
+      \"key_feature\": \"Login functionality\",
+      \"scenario\": \"User enters valid credentials\",
+      \"scenario_type\": \"negative\",
+      \"platform_id\": [
+          1,
+          2
+      ],
+      \"channel_id\": [
+          1
+      ],
+      \"test_data\": \"username: test@example.com, password: pass123\",
+      \"status\": \"open\",
+      \"expected_result\": \"User successfully logged in\",
+      \"pic\": \"john.doe\",
+      \"tester_notes\": \"Test notes here\",
+      \"test_case_step\": [
+          \"Step 1\",
+          \"Step 2\",
+          \"Step 3\"
+      ]
+  }": 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 Ok
+  
+  request: {
+    url: {{base-url}}/api/v1/tdb/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: 8aec1b45-ee8e-4176-9907-60259bed76d8
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      X-Request-Id: 7ecb3b05-f19d-11f0-aa7b-bc2411695713
+      Date: Wed, 14 Jan 2026 23:05:19 GMT
+      Content-Length: 789
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "401ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved test case",
+            "data": {
+                "id": "8aec1b45-ee8e-4176-9907-60259bed76d8",
+                "code": {
+                    "value": "TDB-103",
+                    "prefix": "TDB",
+                    "sequence": 103
+                },
+                "test_type": "FUT",
+                "key_feature": "Login functionality",
+                "scenario": "User enters valid credentials",
+                "scenario_type": "negative",
+                "platform": [
+                    {
+                        "id": 1,
+                        "name": "Safari Mobile",
+                        "created_at": "11/12/2025",
+                        "updated_at": "11/12/2025"
+                    },
+                    {
+                        "id": 2,
+                        "name": "Chrome Mobile",
+                        "created_at": "11/12/2025",
+                        "updated_at": "11/12/2025"
+                    }
+                ],
+                "channel": [
+                    {
+                        "id": 1,
+                        "name": "MyTelkomsel App (i1)",
+                        "created_at": "11/12/2025",
+                        "updated_at": "11/12/2025"
+                    }
+                ],
+                "test_case_step": [
+                    "Step 1",
+                    "Step 2",
+                    "Step 3"
+                ],
+                "created_at": "13/01/2026",
+                "updated_at": "13/01/2026",
+                "created_by": "bagusfarisa@gmail.com",
+                "updated_by": "bagusfarisa@gmail.com"
+            }
+        }
+      '''
+    }
+  }
+}

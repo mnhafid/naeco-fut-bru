@@ -1,0 +1,118 @@
+meta {
+  name: Edit FUT Test Case
+  type: http
+  seq: 3
+}
+
+put {
+  url: {{base-url}}/api/v1/tdb/:id
+  body: json
+  auth: bearer
+}
+
+params:query {
+  ~":task_id": 
+}
+
+params:path {
+  id: 8aec1b45-ee8e-4176-9907-60259bed76d8
+}
+
+headers {
+  Content-Type: application/json
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "precondition": "User must be logged in2",
+      "test_type": "Inspection",
+      "key_feature": "Login functionality",
+      "scenario": "User enters valid credentials",
+      "scenario_type": "negative",
+      "platform_id": [
+          1,
+          2
+      ],
+      "channel_id": [
+          1
+      ],
+      "test_case_step": [
+          "Step 1",
+          "Step 2",
+          "Step 3"
+      ]
+  }
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 OK
+  
+  request: {
+    url: {{base-url}}/api/v1/tasks/:task_id/test-cases/:id
+    method: PUT
+    mode: json
+    params:query: {
+      ~":task_id": null
+    }
+  
+    params:path: {
+      task_id: 9d3a99e9-4213-4b5b-bc68-7b71bcd29114
+      id: 92a740dc-73b0-442c-9548-d64f166537ff
+    }
+  
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body:json: {
+      {
+          "precondition": "User must be logged in2",
+          "test_type": "FUT",
+          "key_feature": "Login functionality",
+          "scenario": "User enters valid credentials",
+          "scenario_type": "negative",
+          "platform_id": [
+              1,
+              2
+          ],
+          "channel_id": [
+              1
+          ],
+          "code": "TDB-103",
+          "test_data": "username: test@example.com, password: pass123",
+          "tester_notes": "Test notes here",
+          "test_case_step": [
+              "Step 1",
+              "Step 2",
+              "Step 3"
+          ]
+      }
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "576ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully updated test case"
+        }
+      '''
+    }
+  }
+}

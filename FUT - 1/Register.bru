@@ -1,0 +1,43 @@
+meta {
+  name: Register
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{base-url}}/api/v1/auth/login
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "email": "rinaldy@samudrainovasi.co.id",
+      "password": "P@ssw0rds"
+  }
+}
+
+script:post-response {
+  // Parse the JSON response
+  const jsonData = res.getBody();
+  
+  // Extract and save accessToken to environment variable
+  if (jsonData.data && jsonData.data.accessToken) {
+      bru.setEnvVar("accessToken", jsonData.data.accessToken);
+      console.log("accessToken saved to environment");
+  }
+  
+  // Extract and save refreshToken to environment variable
+  if (jsonData.data && jsonData.data.refreshToken) {
+      bru.setEnvVar("refreshToken", jsonData.data.refreshToken);
+      console.log("refreshToken saved to environment");
+  }
+}
+
+settings {
+  encodeUrl: true
+}

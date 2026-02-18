@@ -1,0 +1,1011 @@
+meta {
+  name: List
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base-url}}/api/v1/inspections/tasks/:task_id/test-cases?page=1&page_size=20
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 1
+  page_size: 20
+  ~code: 
+  ~key_feature: 
+  ~status: 
+  ~scenario: 
+  ~scenario_type: 
+  ~platform: 
+  ~channel: 
+  ~pic: 
+  ~sort_by: 
+  ~sort_direction: 
+}
+
+params:path {
+  task_id: 4c991509-ece0-4828-81a6-a6cbd2454ee3
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 - Empty Data
+  
+  request: {
+    url: {{base-url}}/api/v1/tasks/:task_id/test-cases
+    method: GET
+    mode: none
+    params:path: {
+      task_id: 1
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "115ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved task testcases",
+            "data": {
+                "list": [],
+                "count": 0
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 - Not Empty Data
+  
+  request: {
+    url: {{base-url}}/api/v1/tasks/:task_id/test-cases
+    method: GET
+    mode: none
+    params:path: {
+      task_id: 1
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "218ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved test cases",
+            "data": {
+                "list": [
+                    {
+                        "id": "92a740dc-73b0-442c-9548-d64f166537ff",
+                        "code": {
+                            "value": "TC-28",
+                            "prefix": "TC",
+                            "sequence": 28
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "6779fb67-7726-46df-a0ce-38daad72f49e",
+                        "code": {
+                            "value": "TC-27",
+                            "prefix": "TC",
+                            "sequence": 27
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "b25fe883-79ef-4318-aa06-fbb17922395e",
+                        "code": {
+                            "value": "TC-26",
+                            "prefix": "TC",
+                            "sequence": 26
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "432ba337-9ca5-4e98-9606-370f92554847",
+                        "code": {
+                            "value": "TC-25",
+                            "prefix": "TC",
+                            "sequence": 25
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "3a5947b0-ad04-46ec-a605-590507d057bc",
+                        "code": {
+                            "value": "TC-24",
+                            "prefix": "TC",
+                            "sequence": 24
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "eeb93643-c5e6-4792-8658-793bbf64e8b1",
+                        "code": {
+                            "value": "TC-23",
+                            "prefix": "TC",
+                            "sequence": 23
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "eb5e28a7-e5ab-44e7-a882-d0c07d97efb6",
+                        "code": {
+                            "value": "TC-22",
+                            "prefix": "TC",
+                            "sequence": 22
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "e6740ffe-97dd-4e4b-a3de-bb0a429452c1",
+                        "code": {
+                            "value": "TC-21",
+                            "prefix": "TC",
+                            "sequence": 21
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "0b0043c9-1b3a-4275-a0ae-ec70564c20fd",
+                        "code": {
+                            "value": "TC-20",
+                            "prefix": "TC",
+                            "sequence": 20
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "5d303b08-4089-4dc6-afc2-0b3140dfc32a",
+                        "code": {
+                            "value": "TC-19",
+                            "prefix": "TC",
+                            "sequence": 19
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "4840c4e7-924d-4bfc-b7d1-57385263d7ef",
+                        "code": {
+                            "value": "TC-18",
+                            "prefix": "TC",
+                            "sequence": 18
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "fc54cdca-fa34-4353-aa49-7f36370c3d62",
+                        "code": {
+                            "value": "TC-16",
+                            "prefix": "TC",
+                            "sequence": 16
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "4d2319ae-c3eb-4202-bda5-0260fb797e1e",
+                        "code": {
+                            "value": "TC-15",
+                            "prefix": "TC",
+                            "sequence": 15
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "4b8a28b3-5c67-49fb-872d-e0a4f7797665",
+                        "code": {
+                            "value": "TC-14",
+                            "prefix": "TC",
+                            "sequence": 14
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "bcbcdf42-d1d2-4940-a4b1-57ce51b9f0d4",
+                        "code": {
+                            "value": "TC-13",
+                            "prefix": "TC",
+                            "sequence": 13
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "8ef54367-712f-4416-98a3-b94e7722ecc9",
+                        "code": {
+                            "value": "TC-12",
+                            "prefix": "TC",
+                            "sequence": 12
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "f441a19b-75e0-461d-8e21-39cd0d53d457",
+                        "code": {
+                            "value": "TC-11",
+                            "prefix": "TC",
+                            "sequence": 11
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "750703b1-5f8e-47b4-a8df-b654e3361150",
+                        "code": {
+                            "value": "TC-10",
+                            "prefix": "TC",
+                            "sequence": 10
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "1a2cfd99-cb3f-4361-bebd-b74c5637a971",
+                        "code": {
+                            "value": "TC-9",
+                            "prefix": "TC",
+                            "sequence": 9
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "87f72670-138d-4abc-afa9-ff8e3fdfa965",
+                        "code": {
+                            "value": "TC-8",
+                            "prefix": "TC",
+                            "sequence": 8
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "11816fa7-a3e1-4c37-a57a-817c629b1692",
+                        "code": {
+                            "value": "TC-7",
+                            "prefix": "TC",
+                            "sequence": 7
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "516ea539-5544-46d1-91a1-2f0443c68fcb",
+                        "code": {
+                            "value": "TC-6",
+                            "prefix": "TC",
+                            "sequence": 6
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "ad1f7625-77f1-4633-a5f6-88c67bd09d78",
+                        "code": {
+                            "value": "TC-5",
+                            "prefix": "TC",
+                            "sequence": 5
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "2e8acf06-9de8-42a0-be04-6d389972ca65",
+                        "code": {
+                            "value": "TC-4",
+                            "prefix": "TC",
+                            "sequence": 4
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    },
+                    {
+                        "id": "cc30f60a-d21d-4169-88dd-8570a57b0659",
+                        "code": {
+                            "value": "TC-3",
+                            "prefix": "TC",
+                            "sequence": 3
+                        },
+                        "key_feature": "Login functionality",
+                        "status": "open",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "pic": "john.doe",
+                        "created_at": "22/12/2025"
+                    }
+                ],
+                "count": 26,
+                "page_size": 25,
+                "page_number": 1
+            }
+        }
+      '''
+    }
+  }
+}

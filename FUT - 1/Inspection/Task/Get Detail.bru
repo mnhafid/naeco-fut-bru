@@ -1,0 +1,138 @@
+meta {
+  name: Get Detail
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base-url}}/api/v1/inspections/tasks/:id/detail
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: e827c8e5-cf4b-4771-b867-a03915ddfebf
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+vars:pre-request {
+  id: e827c8e5-cf4b-4771-b867-a03915ddfebf
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Get Detail
+  
+  request: {
+    url: {{base-url}}/api/v1/tasks/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: 29167b67-584d-4d33-b493-3ac86b957cbd
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "355ms",
+            "status": "success",
+            "code": "",
+            "message": "Task detail retrieved successfully",
+            "data": {
+                "id": "29167b67-584d-4d33-b493-3ac86b957cbd",
+                "title": "Testing Task",
+                "objective": "Testing",
+                "progress": 0,
+                "status": "",
+                "code": {
+                    "value": "FUT-3",
+                    "prefix": "FUT",
+                    "sequence": 3
+                },
+                "submit_date": "",
+                "requestor": "Testing Dulu",
+                "test_case_count": 0,
+                "sla_level": "",
+                "priority": "",
+                "nodin_date": "",
+                "dx_business": [
+                    {
+                        "id": 1,
+                        "name": "Customer Onboarding",
+                        "created_at": "",
+                        "updated_at": ""
+                    }
+                ],
+                "platform": [
+                    {
+                        "id": 1,
+                        "name": "Safari Mobile",
+                        "created_at": "",
+                        "updated_at": ""
+                    }
+                ],
+                "channel": [
+                    {
+                        "id": 1,
+                        "name": "MyTelkomsel App (i1)",
+                        "created_at": "",
+                        "updated_at": ""
+                    }
+                ],
+                "remarks": "Testing by Adrian",
+                "start_test_plan_date": "",
+                "end_test_plan_date": "",
+                "start_test_actual_date": "",
+                "end_test_actual_date": "",
+                "rfc_plan_date": "",
+                "rfs_number": "123XS",
+                "rfs_date": "15/12/2025",
+                "pic": "",
+                "web_links": [
+                    {
+                        "url": "https://github.com/oceaninov/naeco-fut-be/branches",
+                        "link_text": "Testing using Github URL"
+                    }
+                ],
+                "rlm_file": {
+                    "id": "bacae676-68a0-472b-9303-644fedec29a9",
+                    "name": "testing",
+                    "mime_type": "application/pdf",
+                    "url": "test"
+                },
+                "product_brief_file": {
+                    "id": "97330a92-2554-4f71-a35b-83a635534026",
+                    "name": "testing 2.xlsx",
+                    "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    "url": "test"
+                },
+                "br_doc_file": null,
+                "test_case_uat_file": null,
+                "rfs_file": null,
+                "other_files": [],
+                "jira": []
+            }
+        }
+      '''
+    }
+  }
+}

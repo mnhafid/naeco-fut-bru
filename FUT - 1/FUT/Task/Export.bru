@@ -1,0 +1,196 @@
+meta {
+  name: Export
+  type: http
+  seq: 7
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks/export
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+tests {
+  test("status code is 200", function() {
+      expect(res.getStatus()).to.equal(200);
+  });
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: 200 OK - Not Empty Data
+  
+  request: {
+    url: {{base-url}}/api/v1/tasks?page=1&size=10&order_by=task_id&order_direction=asc&title=Adalksa&task_id=&submit_date_from=&submit_date_to=&dx_business_category=&platform=&channel=&status=&test_case_count_min=&test_case_count_max=&progress_min=&progress_max=&start_test_actual_date_from=&start_test_actual_date_to=&end_test_actual_date_from=&end_test_actual_date_to=
+    method: GET
+    mode: none
+    params:query: {
+      page: 1
+      size: 10
+      order_by: task_id
+      order_direction: asc
+      title: Adalksa
+      task_id: 
+      submit_date_from: 
+      submit_date_to: 
+      dx_business_category: 
+      platform: 
+      channel: 
+      status: 
+      test_case_count_min: 
+      test_case_count_max: 
+      progress_min: 
+      progress_max: 
+      start_test_actual_date_from: 
+      start_test_actual_date_to: 
+      end_test_actual_date_from: 
+      end_test_actual_date_to: 
+    }
+  
+    headers: {
+      Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "69ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved tasks",
+            "data": {
+                "list": [
+                    {
+                        "id": "29167b67-584d-4d33-b493-3ac86b957cbd",
+                        "code": {
+                            "value": "FUT-28",
+                            "prefix": "FUT",
+                            "sequence": 28
+                        },
+                        "title": "Testing Task",
+                        "status": "",
+                        "test_case_count": 0,
+                        "progress": 0,
+                        "submit_date": "",
+                        "start_test_actual_date": "",
+                        "end_test_actual_date": "",
+                        "dx_business_category": [
+                            {
+                                "id": 1,
+                                "name": "Customer Onboarding",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "",
+                                "updated_at": ""
+                            }
+                        ]
+                    }
+                ],
+                "count": 1,
+                "page_size": 10,
+                "page_number": 1
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 OK - Empty Data
+  
+  request: {
+    url: {{base-url}}/api/v1/tasks?page=1&size=10&order_by=task_id&order_direction=asc&title=Adalksa&task_id=&submit_date_from=&submit_date_to=&dx_business_category=&platform=&channel=&status=&test_case_count_min=&test_case_count_max=&progress_min=&progress_max=&start_test_actual_date_from=&start_test_actual_date_to=&end_test_actual_date_from=&end_test_actual_date_to=
+    method: GET
+    mode: none
+    params:query: {
+      page: 1
+      size: 10
+      order_by: task_id
+      order_direction: asc
+      title: Adalksa
+      task_id: 
+      submit_date_from: 
+      submit_date_to: 
+      dx_business_category: 
+      platform: 
+      channel: 
+      status: 
+      test_case_count_min: 
+      test_case_count_max: 
+      progress_min: 
+      progress_max: 
+      start_test_actual_date_from: 
+      start_test_actual_date_to: 
+      end_test_actual_date_from: 
+      end_test_actual_date_to: 
+    }
+  
+    headers: {
+      Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "115ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved tasks",
+            "data": {
+                "list": [],
+                "count": 0,
+                "page_size": 10,
+                "page_number": 1
+            }
+        }
+      '''
+    }
+  }
+}

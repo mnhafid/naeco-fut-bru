@@ -1,0 +1,29 @@
+meta {
+  name: Export Generic
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks/:task_id/test-cases/export
+  body: none
+  auth: bearer
+}
+
+params:path {
+  task_id: afbd7c39-70b7-4cdd-ba40-d803eb90c0a2
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+vars:pre-request {
+  task_id: afbd7c39-70b7-4cdd-ba40-d803eb90c0a2
+}
+
+tests {
+  test("status code is 200", function() {
+      expect(res.getStatus()).to.equal(200);
+  });
+}

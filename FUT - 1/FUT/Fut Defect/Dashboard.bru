@@ -1,0 +1,28 @@
+meta {
+  name: Dashboard
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks/:id/defects
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: cc186e9e-bd4d-4d70-9001-bac68b88c0c5
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+vars:pre-request {
+  id: cc186e9e-bd4d-4d70-9001-bac68b88c0c5
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,111 @@
+meta {
+  name: Get Detail
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks/:id/defects/:df-id?=
+  body: none
+  auth: bearer
+}
+
+params:query {
+  : 
+}
+
+params:path {
+  id: cc186e9e-bd4d-4d70-9001-bac68b88c0c5
+  df-id: 6b94c064-3865-4274-98ed-bcf704327a20
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Get Detail
+  
+  request: {
+    url: {{base-url}}/api/v1/futs/tasks/:id/defects/a9aa29de-e90f-4fad-bcf3-e05d0f887220
+    method: GET
+    mode: none
+    params:path: {
+      id: 9d3a99e9-4213-4b5b-bc68-7b71bcd29114
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+            "process_time": "10ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved defect detail",
+            "data": {
+                "id": "",
+                "code": {
+                            "value": "DF-3",
+                            "prefix": "DF",
+                            "sequence": 3
+                        },
+                "status": "closed",
+                "device_info": "Google Pixel 7, Samsung A54",
+                "defect": {
+                    "issue_summary": "Wording Login and Beli Not Showing Guest Mode bot on Indonesia and English",
+                    "test_cases": "TC161 - Change language on onboarding page, TC162 - Change Language on Guest Mode Page, TC163 - Change Language on Login Page...",
+                    "key_feature": "[MYTSEL-3210] [Android] Change Language Improvement",
+                    "level": "minor",
+                    "raised_by": "Rafly",
+                    "category": "Pengaturan modem",
+                    "test_data": "82121453998",
+                    "precedented": true,
+                    "platform": [
+                        {
+                            "id": 1,
+                            "name": "Safari Mobile",
+                            "created_at": "",
+                            "updated_at": ""
+                        }
+                    ],
+                    "tester_evidence": "https://0.0.0.0:8027/uploads/tester_evidence/208dfeee-ec75-40f7-9897-970d14b5f9b0_Screenshot 2025-12-16 at 11.22.32.png",
+                    "raised_date": "2025-12-15"
+                },
+                "developer_team": {
+                    "department": [
+                        {
+                            "id": 1,
+                            "name": "IT",
+                            "created_at": "",
+                            "updated_at": ""
+                        }
+                    ],
+                    "due_date": "2025-12-15",
+                    "pic_it": "Mandeep, Prasad Radju",
+                    "general_notes": "Will be test in the new build\nnew build for android EOD 04/11\nNew build for android EOD 05/11 17:00 WIB",
+                    "it_status":  {
+                        "id": 1,
+                        "name": "IT",
+                        "created_at": "",
+                        "updated_at": ""
+                    },
+                    "it_notes": "on check configuration ( this has been fixed)"
+                }
+            }
+        }
+      '''
+    }
+  }
+}

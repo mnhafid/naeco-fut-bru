@@ -1,0 +1,114 @@
+meta {
+  name: Create New via Form
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base-url}}/api/v1/futs/tasks/cc186e9e-bd4d-4d70-9001-bac68b88c0c5/defects
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:multipart-form {
+  issue_summary: Character Limit on Field
+  key_feature_id: 1
+  test_case: '''
+    TC161 - Change language on onboarding page
+    TC162 - Change Language on Guest Mode Page
+    TC163 - Change Language on Login Page...
+  '''
+  category: Pengaturan modem
+  devices: Google Pixel 7, Samsung A54
+  level: minor
+  platform: 1
+  status: closed
+  raised_date: 15/12/2025
+  raised_by: Rafly
+  test_data: 82121453998
+  department: 1
+  it_status: 1,2
+  due_date: 15/12/2025
+  pic_it: Mandeep, Prasad Radju
+  general_notes: '''
+    Will be test in the new build
+    new build for android EOD 04/11
+    New build for android EOD 05/11 17:00 WIB
+  '''
+  it_notes: on check configuration ( this has been fixed)
+  precedented: 
+  tester_evidence_url: sdfasdfad
+  tester_evidence_url: fasdfsdfadfdsfad
+  ~tester_evidence: @file(/Users/hafidhidayatullah/Downloads/G9sQTeSWgAAUI3-.jpeg)
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: 201 OK
+  
+  request: {
+    url: {{base-url}}/api/v1/futs/tasks/9d3a99e9-4213-4b5b-bc68-7b71bcd29114/defects
+    method: POST
+    mode: multipartForm
+    body:multipart-form: {
+      issue_summary: Wording Login and Beli Not Showing Guest Mode bot on Indonesia and English
+      key_feature_id: 1
+      test_case: '''
+        TC161 - Change language on onboarding page
+        TC162 - Change Language on Guest Mode Page
+        TC163 - Change Language on Login Page...
+      '''
+      category: Pengaturan modem
+      devices: Google Pixel 7, Samsung A54
+      level: minor
+      platform: 1
+      status: closed
+      raised_date: 15/12/2025
+      raised_by: Rafly
+      test_data: 82121453998
+      department: 1
+      it_status: invalid
+      due_date: 15/12/2025
+      pic_it: Mandeep, Prasad Radju
+      general_notes: '''
+        Will be test in the new build
+        new build for android EOD 04/11
+        New build for android EOD 05/11 17:00 WIB
+      '''
+      it_notes: on check configuration ( this has been fixed)
+      tester_evidence: @file(/Users/adriansetiyadi/Documents/pictures/Screenshot 2025-12-16 at 11.22.32.png)
+      precedented: yes
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: Created
+      text: 201
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "1131ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully created defect"
+        }
+      '''
+    }
+  }
+}

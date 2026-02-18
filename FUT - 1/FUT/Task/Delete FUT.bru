@@ -1,0 +1,67 @@
+meta {
+  name: Delete FUT
+  type: http
+  seq: 4
+}
+
+delete {
+  url: {{base-url}}/api/v1/futs/tasks/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 2446ec12-4286-428d-9a29-1c86d555fe63
+}
+
+headers {
+  Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
+}
+
+auth:bearer {
+  token: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: Delete Task
+  
+  request: {
+    url: {{base-url}}api/v1/tasks/:id
+    method: DELETE
+    mode: none
+    params:path: {
+      id: 2446ec12-4286-428d-9a29-1c86d555fe63
+    }
+  
+    headers: {
+      Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "157ms",
+            "status": "success",
+            "code": "",
+            "message": "Task deleted successfully"
+        }
+      '''
+    }
+  }
+}

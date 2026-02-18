@@ -1,0 +1,392 @@
+meta {
+  name: List
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base-url}}/api/v1/tdb?page=1&sort_direction=desc&sort_by=created_at&page_size=100
+  body: none
+  auth: bearer
+}
+
+params:query {
+  page: 1
+  sort_direction: desc
+  sort_by: created_at
+  page_size: 100
+  ~code: 
+  ~key_feature: 
+  ~status: 
+  ~scenario: 
+  ~scenario_type: 
+  ~channel: 
+  ~pic: 
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 - Empty Data
+  
+  request: {
+    url: {{base-url}}/api/v1/tasks/:task_id/test-cases
+    method: GET
+    mode: none
+    params:path: {
+      task_id: 1
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "115ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved task testcases",
+            "data": {
+                "list": [],
+                "count": 0
+            }
+        }
+      '''
+    }
+  }
+}
+
+example {
+  name: 200 - Not Empty Data
+  
+  request: {
+    url: {{base-url}}/api/v1/tdb?page=1&page_size=10&sort_direction=desc&sort_by=created_at
+    method: GET
+    mode: none
+    params:query: {
+      ~code: null
+      ~key_feature: null
+      ~status: null
+      ~scenario: null
+      ~scenario_type: null
+      ~channel: null
+      ~pic: null
+      page: 1
+      page_size: 10
+      sort_direction: desc
+      sort_by: created_at
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json; charset=UTF-8
+      Vary: Origin
+      X-Request-Id: f2d90b12-f11f-11f0-b54b-bc2411695713
+      Date: Wed, 14 Jan 2026 08:06:37 GMT
+      Transfer-Encoding: chunked
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "141ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved test cases",
+            "data": {
+                "list": [
+                    {
+                        "id": "5ec61e69-bd8c-4b79-a9a4-d45c96dba47c",
+                        "code": {
+                            "value": "TDB-1",
+                            "prefix": "TDB",
+                            "sequence": 1
+                        },
+                        "test_type": "Inspection",
+                        "key_feature": "Login functionality",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "created_at": "14/01/2026",
+                        "updated_at": "14/01/2026"
+                    },
+                    {
+                        "id": "74df93cd-6204-47e2-b00c-c530aa8eccf3",
+                        "code": {
+                            "value": "TDB-10000000",
+                            "prefix": "TDB",
+                            "sequence": 10000000
+                        },
+                        "test_type": "Inspection",
+                        "key_feature": "Login functionality",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "created_at": "14/01/2026",
+                        "updated_at": "14/01/2026"
+                    },
+                    {
+                        "id": "8aec1b45-ee8e-4176-9907-60259bed76d8",
+                        "code": {
+                            "value": "TDB-103",
+                            "prefix": "TDB",
+                            "sequence": 103
+                        },
+                        "test_type": "FUT",
+                        "key_feature": "Login functionality",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "created_at": "13/01/2026",
+                        "updated_at": "13/01/2026"
+                    },
+                    {
+                        "id": "70932409-b588-4049-9560-d2dc05e75494",
+                        "code": {
+                            "value": "TDB-101",
+                            "prefix": "TDB",
+                            "sequence": 101
+                        },
+                        "test_type": "FUT",
+                        "key_feature": "Login functionality",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "created_at": "13/01/2026",
+                        "updated_at": "13/01/2026"
+                    },
+                    {
+                        "id": "d909b31a-7ec9-4fa7-8351-585c362692ba",
+                        "code": {
+                            "value": "TDB-100",
+                            "prefix": "TDB",
+                            "sequence": 100
+                        },
+                        "test_type": "FUT",
+                        "key_feature": "Login functionality",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "created_at": "13/01/2026",
+                        "updated_at": "13/01/2026"
+                    },
+                    {
+                        "id": "e46442fb-85d4-447b-8980-258e87614ccf",
+                        "code": {
+                            "value": "TDB-010",
+                            "prefix": "TDB",
+                            "sequence": 8
+                        },
+                        "test_type": "FUT",
+                        "key_feature": "Login functionality",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [],
+                        "channel": [],
+                        "created_at": "13/01/2026",
+                        "updated_at": "13/01/2026"
+                    },
+                    {
+                        "id": "b6a30fb4-6f93-40af-ad8c-35a2e3d4c5c4",
+                        "code": {
+                            "value": "TDB-009",
+                            "prefix": "TDB",
+                            "sequence": 0
+                        },
+                        "test_type": "FUT",
+                        "key_feature": "Login functionality",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [],
+                        "channel": [],
+                        "created_at": "13/01/2026",
+                        "updated_at": "13/01/2026"
+                    },
+                    {
+                        "id": "c2496668-0853-4005-a0ee-f6a517dc26e9",
+                        "code": {
+                            "value": "TDB-002",
+                            "prefix": "TDB",
+                            "sequence": 2
+                        },
+                        "test_type": "FUT",
+                        "key_feature": "Login functionality",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [],
+                        "channel": [],
+                        "created_at": "13/01/2026",
+                        "updated_at": "13/01/2026"
+                    },
+                    {
+                        "id": "6e04e420-ba25-4d74-9558-95abf40b51a9",
+                        "code": {
+                            "value": "TDB-001",
+                            "prefix": "TDB",
+                            "sequence": 1
+                        },
+                        "test_type": "FUT",
+                        "key_feature": "Login functionality",
+                        "scenario": "User enters valid credentials",
+                        "scenario_type": "negative",
+                        "platform": [],
+                        "channel": [],
+                        "created_at": "12/01/2026",
+                        "updated_at": "12/01/2026"
+                    },
+                    {
+                        "id": "08b02147-9e84-4fd1-92c7-b320f3cd236e",
+                        "code": {
+                            "value": "TC-002",
+                            "prefix": "TC",
+                            "sequence": 2
+                        },
+                        "test_type": "FUT",
+                        "key_feature": "Registration Feature",
+                        "scenario": "User can register with valid email and password",
+                        "scenario_type": "positive",
+                        "platform": [
+                            {
+                                "id": 1,
+                                "name": "Safari Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            },
+                            {
+                                "id": 2,
+                                "name": "Chrome Mobile",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "channel": [
+                            {
+                                "id": 1,
+                                "name": "MyTelkomsel App (i1)",
+                                "created_at": "11/12/2025",
+                                "updated_at": "11/12/2025"
+                            }
+                        ],
+                        "created_at": "12/01/2026",
+                        "updated_at": "12/01/2026"
+                    }
+                ],
+                "count": 11,
+                "page_size": 10,
+                "page_number": 1
+            }
+        }
+      '''
+    }
+  }
+}

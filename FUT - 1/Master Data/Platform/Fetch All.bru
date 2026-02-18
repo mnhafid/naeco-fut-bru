@@ -1,0 +1,139 @@
+meta {
+  name: Fetch All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base-url}}/api/v1/platforms
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer-token}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: Fetch All
+  
+  request: {
+    url: {{base-url}}/api/v1/platforms
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "9ms",
+            "status": "success",
+            "code": "",
+            "message": "Berhasil mendapatkan semua platform",
+            "data": [
+                {
+                    "id": 15,
+                    "name": "Huawei Tablet/Fold",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 14,
+                    "name": "Apple Tablet/Fold",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 13,
+                    "name": "Android Tablet/Fold",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 12,
+                    "name": "Huawei Mobile",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 11,
+                    "name": "Apple Mobile",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 10,
+                    "name": "Android Mobile",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 9,
+                    "name": "Mozilla Desktop",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 8,
+                    "name": "Chrome Desktop",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 7,
+                    "name": "Safari Desktop",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 6,
+                    "name": "Mozilla Tablet",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 5,
+                    "name": "Chrome Tablet",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 4,
+                    "name": "Safari Tablet",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 3,
+                    "name": "Mozilla Mobile",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 2,
+                    "name": "Chrome Mobile",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                },
+                {
+                    "id": 1,
+                    "name": "Safari Mobile",
+                    "created_at": "11/12/2025 19:37:34",
+                    "updated_at": "11/12/2025 19:37:34"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

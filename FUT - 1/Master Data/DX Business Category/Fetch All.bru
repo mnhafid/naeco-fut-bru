@@ -1,0 +1,91 @@
+meta {
+  name: Fetch All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base-url}}/api/v1/dx-business-categories
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{bearer-token}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 OK
+  
+  request: {
+    url: {{base-url}}/api/v1/dx-business-categories
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "0ms",
+            "status": "success",
+            "code": "",
+            "message": "Berhasil mendapatkan semua kategori bisnis DX",
+            "data": [
+                {
+                    "id": 7,
+                    "name": "Ecosystem Business & Partnership",
+                    "created_at": "11/12/2025 19:36:59",
+                    "updated_at": "11/12/2025 19:36:59"
+                },
+                {
+                    "id": 6,
+                    "name": "Lifestyle Engagement",
+                    "created_at": "11/12/2025 19:36:59",
+                    "updated_at": "11/12/2025 19:36:59"
+                },
+                {
+                    "id": 5,
+                    "name": "Loyalty & Gamification",
+                    "created_at": "11/12/2025 19:36:59",
+                    "updated_at": "11/12/2025 19:36:59"
+                },
+                {
+                    "id": 4,
+                    "name": "Customer Payment & Promotion",
+                    "created_at": "11/12/2025 19:36:59",
+                    "updated_at": "11/12/2025 19:36:59"
+                },
+                {
+                    "id": 3,
+                    "name": "Customer Purchase Experience",
+                    "created_at": "11/12/2025 19:36:59",
+                    "updated_at": "11/12/2025 19:36:59"
+                },
+                {
+                    "id": 2,
+                    "name": "Customer Dashboard Hub & Discovery",
+                    "created_at": "11/12/2025 19:36:59",
+                    "updated_at": "11/12/2025 19:36:59"
+                },
+                {
+                    "id": 1,
+                    "name": "Customer Onboarding",
+                    "created_at": "11/12/2025 19:36:59",
+                    "updated_at": "11/12/2025 19:36:59"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}

@@ -1,0 +1,68 @@
+meta {
+  name: Edit FUT
+  type: http
+  seq: 6
+}
+
+put {
+  url: {{base-url}}/api/v1/inspections/tasks/:id
+  body: json
+  auth: bearer
+}
+
+params:path {
+  id: 4c991509-ece0-4828-81a6-a6cbd2454ee3
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "status": "",
+      "sla_level": "",
+      "priority": "",
+      "requestor": "",
+      "pic": "",
+      "nodin_date": "15/12/2025",
+      "submit_date": "15/12/2025",
+      "start_test_plan_date": "15/12/2025",
+      "end_test_plan_date": "15/12/2025",
+      "rfi_plan_date": "15/12/2025",
+      "start_test_actual_date": "15/12/2025",
+      "end_test_actual_date": "15/12/2025",
+      "title": "Testing Task",
+      "objective": "Testing",
+      "dx_business_category_id": [
+          1
+      ],
+      "platform_id": [
+          1
+      ],
+      "channel_id": [
+          1
+      ],
+      "remarks": "Testing by Adrian",
+      "rfi_number": "123XS",
+      "rfi_date": "15/12/2025",
+          "itr_plan_date": "15/12/2025",
+      "rlm_file_id": "bacae676-68a0-472b-9303-644fedec29a9",
+      "product_brief_file_id": "97330a92-2554-4f71-a35b-83a635534026",
+      "br_doc_file_id": "",
+      "test_case_uat_file_id": "",
+      "rfi_file_id": "",
+      "other_files": [],
+      "web_links": [
+          {
+              "url": "https://github.com/oceaninov/naeco-fut-be/branches",
+              "link_text": "Testing using Github URL"
+          }
+      ],
+      "jira": []
+  }
+}
+
+settings {
+  encodeUrl: true
+}

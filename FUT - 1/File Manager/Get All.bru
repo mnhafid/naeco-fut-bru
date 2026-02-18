@@ -1,0 +1,70 @@
+meta {
+  name: Get All
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base-url}}/api/v1/files
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: 
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 OK
+  
+  request: {
+    url: {{base-url}}/api/v1/files
+    method: GET
+    mode: none
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: OK
+      text: 200
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "process_time": "65ms",
+            "status": "success",
+            "code": "",
+            "message": "Successfully retrieved file uploads",
+            "data": [
+                {
+                    "id": "bacae676-68a0-472b-9303-644fedec29a9",
+                    "file_name": "testing.pdf",
+                    "file_size": 1231231231,
+                    "created_at": "15/12/2025 13:10:30",
+                    "file_type": "application/pdf",
+                    "url": "https://github.com/oceaninov/naeco-fut-be/pulls"
+                },
+                {
+                    "id": "97330a92-2554-4f71-a35b-83a635534026",
+                    "file_name": "testing 2.xlsx",
+                    "file_size": 1232121,
+                    "created_at": "15/12/2025 13:12:10",
+                    "file_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    "url": "https://github.com/oceaninov/naeco-fut-be/pulls"
+                }
+            ]
+        }
+      '''
+    }
+  }
+}
