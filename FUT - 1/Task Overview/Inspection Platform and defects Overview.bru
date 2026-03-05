@@ -5,7 +5,7 @@ meta {
 }
 
 get {
-  url: {{base-url}}/api/v1/overview/inspections/:id
+  url: {{base-url}}/api/v1/overviews/inspections/:id
   body: none
   auth: bearer
 }
@@ -27,4 +27,70 @@ tests {
 settings {
   encodeUrl: true
   timeout: 0
+}
+
+example {
+  name: Success
+  
+  request: {
+    url: {{base-url}}/api/v1/overviews/inspections/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: 11111111-1111-1111-1111-111111111111
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+          "process_time": "116ms",
+          "status": "success",
+          "code": "",
+          "message": "Successfully retrieved platform dashboard",
+          "data": {
+            "defects_penetration": {
+              "total_defect": 2,
+              "open": 1,
+              "penetration_rate": 16.666666666666664,
+              "critical": 0,
+              "high": 0,
+              "medium": 1,
+              "minor": 0
+            },
+            "platforms": [
+              {
+                "platform_id": 8,
+                "platform_name": "Chrome Desktop",
+                "screening": {
+                  "percentage": 0,
+                  "tc_execute": 0,
+                  "total_tc": 1
+                },
+                "tested_ok": {
+                  "percentage": 100,
+                  "tc_execute": 1,
+                  "total_tc": 1
+                },
+                "defects": {
+                  "critical": 0,
+                  "high": 0,
+                  "medium": 1,
+                  "minor": 0,
+                  "open": 1
+                }
+              }
+            ]
+          }
+        }
+      '''
+    }
+  }
 }

@@ -11,7 +11,7 @@ get {
 }
 
 params:path {
-  id: 58536734-79de-40d5-96e1-5a865c7054c9
+  id: 0203f98f-d423-4e06-8677-447bbf9e9c0b
 }
 
 auth:bearer {
@@ -51,57 +51,44 @@ example {
       type: text
       content: '''
         {
-          "status": {
-            "code": 200,
-            "message": "success"
-          },
+          "process_time": "116ms",
+          "status": "success",
+          "code": "",
+          "message": "Successfully retrieved platform dashboard",
           "data": {
+            "defects_penetration": {
+              "total_defect": 2,
+              "open": 1,
+              "penetration_rate": 16.666666666666664,
+              "critical": 0,
+              "high": 0,
+              "medium": 1,
+              "minor": 0
+            },
             "platforms": [
               {
-                "platform_id": 1,
-                "platform_name": "Safari Mobile",
+                "platform_id": 8,
+                "platform_name": "Chrome Desktop",
                 "screening": {
                   "percentage": 0,
                   "tc_execute": 0,
-                  "total_tc": 277
+                  "total_tc": 1
                 },
                 "tested_ok": {
                   "percentage": 100,
-                  "tc_execute": 277,
-                  "total_tc": 277
+                  "tc_execute": 1,
+                  "total_tc": 1
                 },
                 "defects": {
-                  "critical": 3,
-                  "high": 2,
-                  "medium": 2,
-                  "minor": 1,
-                  "open": 8
-                }
-              },
-              {
-                "platform_id": 2,
-                "platform_name": "Chrome Mobile",
-                "screening": {
-                  "percentage": 0,
-                  "tc_execute": 0,
-                  "total_tc": 277
-                },
-                "tested_ok": {
-                  "percentage": 100,
-                  "tc_execute": 277,
-                  "total_tc": 277
-                },
-                "defects": {
-                  "critical": 3,
-                  "high": 2,
-                  "medium": 2,
-                  "minor": 1,
-                  "open": 8
+                  "critical": 0,
+                  "high": 0,
+                  "medium": 1,
+                  "minor": 0,
+                  "open": 1
                 }
               }
             ]
-          },
-          "message": "Successfully retrieved platform dashboard"
+          }
         }
       '''
     }
