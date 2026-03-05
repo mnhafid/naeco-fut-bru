@@ -70,8 +70,19 @@ curl -X GET "http://192.168.191.189:8001/api/v1/overviews/inspections/tasks/1111
           "high": 0,
           "medium": 1,
           "minor": 0,
-          "open": 1
+          "open": 1,
+          "total": 3
         }
+      }
+    ],
+    "key_features": [
+      {
+        "name": "aaaa",
+        "tc_count": 0
+      },
+      {
+        "name": "aaaaa",
+        "tc_count": 0
       }
     ]
   }
