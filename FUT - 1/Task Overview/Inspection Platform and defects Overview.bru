@@ -5,13 +5,13 @@ meta {
 }
 
 get {
-  url: {{base-url}}/api/v1/overviews/inspections/:id
+  url: {{base-url}}/api/v1/overviews/inspections/tasks/:id
   body: none
   auth: bearer
 }
 
 params:path {
-  id: 11111111-1111-1111-1111-111111111111
+  id: 
 }
 
 auth:bearer {
@@ -33,7 +33,7 @@ example {
   name: Success
   
   request: {
-    url: {{base-url}}/api/v1/overviews/inspections/:id
+    url: {{base-url}}/api/v1/overviews/inspections/tasks/:id
     method: GET
     mode: none
     params:path: {
@@ -51,15 +51,15 @@ example {
       type: text
       content: '''
         {
-          "process_time": "116ms",
+          "process_time": "803ms",
           "status": "success",
           "code": "",
           "message": "Successfully retrieved platform dashboard",
           "data": {
             "defects_penetration": {
-              "total_defect": 2,
-              "open": 1,
-              "penetration_rate": 16.666666666666664,
+              "total_defect": 9,
+              "open": 3,
+              "penetration_rate": 50,
               "critical": 0,
               "high": 0,
               "medium": 1,
@@ -86,6 +86,236 @@ example {
                   "minor": 0,
                   "open": 1
                 }
+              }
+            ],
+            "key_features": [
+              {
+                "name": "aaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "tc_count": 0
+              },
+              {
+                "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasss",
+                "tc_count": 0
+              },
+              {
+                "name": "acacac",
+                "tc_count": 0
+              },
+              {
+                "name": "adadada",
+                "tc_count": 0
+              },
+              {
+                "name": "asd",
+                "tc_count": 0
+              },
+              {
+                "name": "asdasd",
+                "tc_count": 0
+              },
+              {
+                "name": "asss",
+                "tc_count": 0
+              },
+              {
+                "name": "asssss",
+                "tc_count": 0
+              },
+              {
+                "name": "name",
+                "tc_count": 0
+              },
+              {
+                "name": "TESTING ADRIAN",
+                "tc_count": 0
+              },
+              {
+                "name": "testing lip",
+                "tc_count": 1
+              },
+              {
+                "name": "tw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-max-w-xstw-",
+                "tc_count": 0
               }
             ]
           }
