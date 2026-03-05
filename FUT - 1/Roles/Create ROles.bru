@@ -1,0 +1,47 @@
+meta {
+  name: Create ROles
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base-url}}/api/v1/roles
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {"name":"Product Manager","description":"fsdafsdafds"}
+}
+
+script:post-response {
+  // Parse the JSON response
+  const jsonData = res.getBody();
+  
+  // Extract and save accessToken to environment variable
+  if (jsonData.data && jsonData.data.accessToken) {
+      bru.setEnvVar("accessToken", jsonData.data.accessToken);
+      console.log("accessToken saved to environment");
+  }
+  
+  // Extract and save refreshToken to environment variable
+  if (jsonData.data && jsonData.data.refreshToken) {
+      bru.setEnvVar("refreshToken", jsonData.data.refreshToken);
+      console.log("refreshToken saved to environment");
+  }
+}
+
+tests {
+  test("status code is 200 or 201", function() {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  });
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

@@ -1,0 +1,30 @@
+meta {
+  name: Inspection Platform and defects Overview
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{base-url}}/api/v1/overview/inspections/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 11111111-1111-1111-1111-111111111111
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+tests {
+  test("status code is 200 or 201", function() {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  });
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}

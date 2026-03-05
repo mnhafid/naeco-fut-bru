@@ -1,0 +1,35 @@
+meta {
+  name: 3. Get Inspection Task Detail
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base-url}}/api/v1/inspections/tasks/:id/detail
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: {{inspectionTaskId}}
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+tests {
+  test("status code is 200", function() {
+      expect(res.getStatus()).to.equal(200);
+  });
+
+  test("id matches", function() {
+      var data = res.getBody();
+      expect(data.data.id).to.equal(bru.getVar("inspectionTaskId"));
+  });
+
+  test("title is correct", function() {
+      var data = res.getBody();
+      expect(data.data.title).to.equal("Automation Inspection Task");
+  });
+}

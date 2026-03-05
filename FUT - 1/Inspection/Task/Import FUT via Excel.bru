@@ -97,3 +97,9 @@ example {
     }
   }
 }
+
+tests {
+  test("status code is 200 or 201", function() {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  });
+}

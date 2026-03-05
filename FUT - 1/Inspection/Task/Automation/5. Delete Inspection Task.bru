@@ -1,0 +1,30 @@
+meta {
+  name: 5. Delete Inspection Task
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{base-url}}/api/v1/inspections/tasks/:id
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: {{inspectionTaskId}}
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+tests {
+  test("status code is 200", function() {
+      expect(res.getStatus()).to.equal(200);
+  });
+
+  test("response status is success", function() {
+      var data = res.getBody();
+      expect(data.status).to.equal("success");
+  });
+}

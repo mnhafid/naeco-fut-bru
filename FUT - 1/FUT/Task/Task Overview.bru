@@ -1,0 +1,112 @@
+meta {
+  name: Task Overview
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks/:id/overview
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 265f7d79-cf38-4638-88c4-b936226e0b1e
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+settings {
+  encodeUrl: true
+}
+
+example {
+  name: 200 OK - Platform Dashboard
+  
+  request: {
+    url: {{base-url}}/api/v1/futs/tasks/:id/overview
+    method: GET
+    mode: none
+    params:path: {
+      id: 265f7d79-cf38-4638-88c4-b936226e0b1e
+    }
+  }
+  
+  response: {
+    headers: {
+      Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: json
+      content: '''
+        {
+            "status": {
+                "code": 200,
+                "message": "success"
+            },
+            "data": {
+                "platforms": [
+                    {
+                        "platform_id": 1,
+                        "platform_name": "Safari Mobile",
+                        "screening": {
+                            "percentage": 0,
+                            "tc_execute": 0,
+                            "total_tc": 277
+                        },
+                        "tested_ok": {
+                            "percentage": 100,
+                            "tc_execute": 277,
+                            "total_tc": 277
+                        },
+                        "defects": {
+                            "critical": 3,
+                            "high": 2,
+                            "medium": 2,
+                            "minor": 1,
+                            "open": 8
+                        }
+                    },
+                    {
+                        "platform_id": 2,
+                        "platform_name": "Chrome Mobile",
+                        "screening": {
+                            "percentage": 0,
+                            "tc_execute": 0,
+                            "total_tc": 277
+                        },
+                        "tested_ok": {
+                            "percentage": 100,
+                            "tc_execute": 277,
+                            "total_tc": 277
+                        },
+                        "defects": {
+                            "critical": 3,
+                            "high": 2,
+                            "medium": 2,
+                            "minor": 1,
+                            "open": 8
+                        }
+                    }
+                ]
+            },
+            "message": "Successfully retrieved platform dashboard"
+        }
+      '''
+    }
+  }
+}
+
+tests {
+  test("status code is 200 or 201", function() {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  });
+}

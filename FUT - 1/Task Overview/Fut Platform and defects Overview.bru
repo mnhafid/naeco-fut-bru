@@ -1,0 +1,109 @@
+meta {
+  name: Fut Platform and defects Overview
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base-url}}/api/v1/overviews/futs/tasks/:id/platforms/dashboard
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: 58536734-79de-40d5-96e1-5a865c7054c9
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+tests {
+  test("status code is 200 or 201", function() {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  });
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
+
+example {
+  name: Success
+  
+  request: {
+    url: {{base-url}}/api/v1/overview/futs/:id
+    method: GET
+    mode: none
+    params:path: {
+      id: 11111111-1111-1111-1111-111111111111
+    }
+  }
+  
+  response: {
+    status: {
+      code: 200
+      text: OK
+    }
+  
+    body: {
+      type: text
+      content: '''
+        {
+          "status": {
+            "code": 200,
+            "message": "success"
+          },
+          "data": {
+            "platforms": [
+              {
+                "platform_id": 1,
+                "platform_name": "Safari Mobile",
+                "screening": {
+                  "percentage": 0,
+                  "tc_execute": 0,
+                  "total_tc": 277
+                },
+                "tested_ok": {
+                  "percentage": 100,
+                  "tc_execute": 277,
+                  "total_tc": 277
+                },
+                "defects": {
+                  "critical": 3,
+                  "high": 2,
+                  "medium": 2,
+                  "minor": 1,
+                  "open": 8
+                }
+              },
+              {
+                "platform_id": 2,
+                "platform_name": "Chrome Mobile",
+                "screening": {
+                  "percentage": 0,
+                  "tc_execute": 0,
+                  "total_tc": 277
+                },
+                "tested_ok": {
+                  "percentage": 100,
+                  "tc_execute": 277,
+                  "total_tc": 277
+                },
+                "defects": {
+                  "critical": 3,
+                  "high": 2,
+                  "medium": 2,
+                  "minor": 1,
+                  "open": 8
+                }
+              }
+            ]
+          },
+          "message": "Successfully retrieved platform dashboard"
+        }
+      '''
+    }
+  }
+}

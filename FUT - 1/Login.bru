@@ -1,7 +1,7 @@
 meta {
   name: Login
   type: http
-  seq: 8
+  seq: 11
 }
 
 post {
@@ -36,6 +36,12 @@ script:post-response {
       bru.setEnvVar("refreshToken", jsonData.data.refreshToken);
       console.log("refreshToken saved to environment");
   }
+}
+
+tests {
+  test("status code is 200 or 201", function() {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  });
 }
 
 settings {

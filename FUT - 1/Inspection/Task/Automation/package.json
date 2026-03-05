@@ -1,0 +1,18 @@
+{
+  "name": "inspection-automation",
+  "version": "1.0.0",
+  "description": "Inspection API Automation Test Suite using Bruno",
+  "scripts": {
+    "test": "bru run --collection \"FUT - 1\" --folder \"Inspection/Task/Automation\" --environment DEV --output results/inspection-results.json --format json",
+    "test:shell": "./run-inspection-tests.sh",
+    "test:watch": "bru run --collection \"FUT - 1\" --folder \"Inspection/Task/Automation\" --environment DEV --watch"
+  },
+  "keywords": [
+    "bruno",
+    "api-testing",
+    "inspection",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT"
+}

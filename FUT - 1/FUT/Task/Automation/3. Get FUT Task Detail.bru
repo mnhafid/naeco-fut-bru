@@ -1,0 +1,30 @@
+meta {
+  name: 3. Get FUT Task Detail
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks/:id/detail
+  body: none
+  auth: bearer
+}
+
+params:path {
+  id: {{automationTaskId}}
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+tests {
+  test("status code is 200", function() {
+      expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("id matches", function() {
+      var data = res.getBody();
+      expect(data.data.id).to.equal(bru.getVar("automationTaskId"));
+  });
+}

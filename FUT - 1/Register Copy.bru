@@ -1,7 +1,7 @@
 meta {
   name: Register Copy
   type: http
-  seq: 10
+  seq: 13
 }
 
 get {
@@ -38,6 +38,13 @@ script:post-response {
   }
 }
 
+tests {
+  test("status code is 200 or 201", function() {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  });
+}
+
 settings {
   encodeUrl: true
+  timeout: 0
 }

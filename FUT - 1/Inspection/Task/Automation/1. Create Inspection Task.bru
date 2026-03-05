@@ -1,0 +1,59 @@
+meta {
+  name: 1. Create Inspection Task
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{base-url}}/api/v1/inspections/tasks/upload/form
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "title": "Automation Inspection Task",
+      "objective": "Testing Automation for Inspection",
+      "dx_business_category_id": [
+          1
+      ],
+      "platform_id": [
+          1
+      ],
+      "channel_id": [
+          1
+      ],
+      "remarks": "Created by Inspection Automation Script",
+      "rfi_number": "AUTO-INSP-001",
+      "rfi_date": "15/12/2025",
+      "itr_plan_date": "15/12/2025",
+      "rlm_file_id": "bacae676-68a0-472b-9303-644fedec29a9",
+      "product_brief_file_id": "97330a92-2554-4f71-a35b-83a635534026",
+      "br_doc_file_id": "",
+      "test_case_uat_file_id": "",
+      "rfi_file_id": "",
+      "other_files": [],
+      "web_links": [
+          {
+              "url": "https://github.com/oceaninov/naeco-fut-be/branches",
+              "link_text": "Testing using Github URL"
+          }
+      ],
+      "jira": []
+  }
+}
+
+tests {
+  test("status code is 200 or 201", function() {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  });
+
+  test("response status is success", function() {
+      var data = res.getBody();
+      expect(data.status).to.equal("success");
+  });
+}

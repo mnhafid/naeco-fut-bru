@@ -5,25 +5,30 @@ meta {
 }
 
 post {
-  url: {{base-url}}/api/v1/fut/tasks/:task_id/test-cases/upload/excel
+  url: {{base-url}}/api/v1/futs/tasks/:task_id/test-cases/upload/excel
   body: multipartForm
-  auth: inherit
+  auth: bearer
 }
 
 params:path {
-  task_id: 755e5a43-abd8-41fa-8fe5-de5177780228
+  task_id: 5f130948-3cc5-4f80-9356-3d85087b5125
 }
 
 headers {
   Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImJhbmthZG1pbkBnbWFpbC5jb20iLCJleHAiOjE3NjM3MTAxNzQsImlhdCI6MTc2MzYyMzc3NCwicm9sZSI6IjEiLCJ1c2VySWQiOiJmNzkzYzAwMC05ZWEzLTQ4MzEtOTVkOC1mZDk0YzM5ZTQ0MTEifQ.71DzpJvgbzdZggJV5MZ41n2TZAAr2WmTYhGOl2hW5AY
 }
 
+auth:bearer {
+  token: {{accessToken}}
+}
+
 body:multipart-form {
-  file: @file(/Users/hafidhidayatullah/Downloads/inspection-test-case-template.xlsx)
+  file: @file(/Users/hafidhidayatullah/Downloads/fut-test-case-template.xlsx)
 }
 
 settings {
   encodeUrl: true
+  timeout: 0
 }
 
 example {
@@ -49,6 +54,11 @@ example {
   response: {
     headers: {
       Content-Type: application/json
+    }
+  
+    status: {
+      code: 200
+      text: OK
     }
   
     body: {
@@ -95,6 +105,11 @@ example {
       Content-Type: application/json
     }
   
+    status: {
+      code: 200
+      text: OK
+    }
+  
     body: {
       type: json
       content: '''
@@ -112,4 +127,10 @@ example {
       '''
     }
   }
+}
+
+tests {
+  test("status code is 200 or 201", function() {
+      expect(res.getStatus()).to.be.oneOf([200, 201]);
+  });
 }

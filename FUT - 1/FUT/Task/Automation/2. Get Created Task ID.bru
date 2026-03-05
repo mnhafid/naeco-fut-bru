@@ -1,0 +1,37 @@
+meta {
+  name: 2. Get Created Task ID
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{base-url}}/api/v1/futs/tasks?title=Automation Test Task
+  body: none
+  auth: bearer
+}
+
+params:query {
+  title: Automation Test Task
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+script:post-response {
+  var data = res.getBody();
+  if (data.data.list.length > 0) {
+      bru.setVar("automationTaskId", data.data.list[0].id);
+  }
+}
+
+tests {
+  test("status code is 200", function() {
+      expect(res.getStatus()).to.equal(200);
+  });
+
+  test("task found", function() {
+      var data = res.getBody();
+      expect(data.data.list).to.be.an('array').that.is.not.empty;
+  });
+}

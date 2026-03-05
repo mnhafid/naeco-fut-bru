@@ -1,0 +1,74 @@
+meta {
+  name: 4. Edit Inspection Task
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{base-url}}/api/v1/inspections/tasks/:id
+  body: json
+  auth: bearer
+}
+
+params:path {
+  id: {{inspectionTaskId}}
+}
+
+auth:bearer {
+  token: {{accessToken}}
+}
+
+body:json {
+  {
+      "status": "",
+      "sla_level": "",
+      "priority": "",
+      "requestor": "",
+      "nodin_date": "15/12/2025",
+      "submit_date": "15/12/2025",
+      "start_test_plan_date": "15/12/2025",
+      "end_test_plan_date": "15/12/2025",
+      "rfi_plan_date": "15/12/2025",
+      "start_test_actual_date": "15/12/2025",
+      "end_test_actual_date": "15/12/2025",
+      "title": "Automation Inspection Task Updated",
+      "objective": "Testing Automation for Inspection - Updated",
+      "dx_business_category_id": [
+          1
+      ],
+      "platform_id": [
+          1
+      ],
+      "channel_id": [
+          1
+      ],
+      "remarks": "Updated by Inspection Automation Script",
+      "rfi_number": "AUTO-INSP-001-UPDATED",
+      "rfi_date": "16/12/2025",
+      "itr_plan_date": "16/12/2025",
+      "rlm_file_id": "bacae676-68a0-472b-9303-644fedec29a9",
+      "product_brief_file_id": "97330a92-2554-4f71-a35b-83a635534026",
+      "br_doc_file_id": "",
+      "test_case_uat_file_id": "",
+      "rfi_file_id": "",
+      "other_files": [],
+      "web_links": [
+          {
+              "url": "https://github.com/oceaninov/naeco-fut-be/branches",
+              "link_text": "Testing using Github URL Updated"
+          }
+      ],
+      "jira": []
+  }
+}
+
+tests {
+  test("status code is 200", function() {
+      expect(res.getStatus()).to.equal(200);
+  });
+
+  test("response status is success", function() {
+      var data = res.getBody();
+      expect(data.status).to.equal("success");
+  });
+}
